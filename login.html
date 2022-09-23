@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar - Reccados</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container container-account d-flex justify-content-center align-items-center">
+        <div class="row row-account d-flex justify-content-center align-items-center p-4" id="main">
+            <div class="col d-none d-sm-block">
+                <img class="img-login img-fluid" src="./images/login-img.png" alt="Reccados" >
+                <p class="p-account text-center mt-2">Bem vindo ao Reccados, sistema de recados desenvolvido por <a target="_blank" href="https://github.com/AdrianoCoutinho">Adriano Coutinho</a></p>
+            </div>
+            <div class="col">  
+                <form id="login">
+                    <h1 class="h1-account">LOGIN</h1>
+                    <div class="group-account">
+                        <input type="text" id="inputUser" class="input-login" required="required"/>
+                        <label class="label-input">Usuário</label>
+                    </div>
+                    <div class="group-account">
+                        <input type="password" id="inputPass" class="input-login" required="required"/>
+                        <label class="label-input">Senha</label>
+                    </div>
+                    <div class="form-check form-switch d-flex justify-content-center mb-2">
+                        <input class="form-check-input" type="checkbox" role="switch" id="cotinueLogin">
+                        <label class="form-check-label px-2" for="cotinueLogin">Manter login</label>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-submit" type="submit">Login</button>
+                    </div>
+                    <p class="p-account text-center mt-2">Não é cadastrado? <a href="cadastro.html">Criar conta</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/bootstrap.bundle.min.js"></script>
+    <script src="scripts/index.js"></script>
+</body>
+</html>

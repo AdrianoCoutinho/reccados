@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+body {
+    font-family: 'Oswald', sans-serif;
+    height: 100vh;
+    background: rgb(0,238,216);
+    background: linear-gradient(135deg, #2a4252 35%, #3a5b70 75%);
+}
+
+/* NAV MENU TOPO */
+.navbar a{
+    color: #909090;
+}
+
+.dropdown-menu {
+    min-width: 115px;
+}
+
+.nav-item a {
+    color:#d3d3d3;
+}
+
+.nav-item a:hover {
+    color:white;
+}
+
+.dropdown-item {
+    color: #000000 !important;
+}
+/* ------Recados -----*/
+.container-home {
+    background-color: #fff;
+    margin-top: 50px;
+}
+
+#new-message {
+    border: 1px solid #bcbcbc;
+    border-radius: 5px;
+}
+
+.alert-dark {
+    background-color: #141619;
+    color: #fff;
+}
+
+.input-new{
+    width: 100%;
+    background: none;
+    color: #c6c6c6;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #c6c6c6;
+}
+
+.input-new:focus ~ label, .input-new:valid ~ label {
+    top: -60px;
+    font-size: 12px;
+    color: #2196F3;
+}
+.label-new {
+    color: #c6c6c6;
+    font-size: 15px;
+    font-weight: normal;
+    position: relative;
+    pointer-events: none;
+    left: 5px;
+    top: -36px;
+    transition: 300ms ease all;
+}
+
+.scope {
+    width: 27px !important;
+}
+
+.table>:not(caption)>*>* {
+    padding: 0.5rem 0.4rem;
+}
+
+/* Fix dos erros das tabelas em dispositivos menores */
+@media (max-width: 1024px){
+    .d-md-block {
+        display: grid !important;
+    }
+}
+
+
+@-webkit-keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+       transform: translateX(-5px);
+    } 
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+@keyframes swing
+{
+    15%
+    {
+        -webkit-transform: translateX(5px);
+        transform: translateX(5px);
+    }
+    30%
+    {
+        -webkit-transform: translateX(-5px);
+        transform: translateX(-5px);
+    }
+    50%
+    {
+        -webkit-transform: translateX(3px);
+        transform: translateX(3px);
+    }
+    65%
+    {
+        -webkit-transform: translateX(-3px);
+        transform: translateX(-3px);
+    }
+    80%
+    {
+        -webkit-transform: translateX(2px);
+        transform: translateX(2px);
+    }
+    100%
+    {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+}
+/* --------Botao TOPO--------*/
+#goTop {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    border-radius: 100%;
+    outline: none;
+    background-color: #0053ec;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+  }
+  
+  #goTop:hover {
+    background-color: #286ed6;
+  }
+
+  .material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 21px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+}
+  /* -------------------*/
+
+
+/* Estilo de Login e Registro */
+#main {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.erro {
+    color:#f84c4c;
+}
+
+#login, #register, .p-account {
+    color: #606060;
+}
+
+.p-account a{
+    text-decoration: none;
+    color: #0d8aee;
+}
+
+.container-account {
+    height: 100vh;
+}
+
+.row-account {
+    background-color: #fff;
+    border-radius: 15px;    
+}
+
+.img-login {
+    max-width: 300px;
+    margin-right: 50px;
+}
+
+.img-login:hover {
+    -webkit-animation: swing 1s ease;
+    animation: swing 1s ease;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+}
+
+.h1-account {
+    font-size: 3em;
+    font-weight: 300;
+    text-align: center;
+    color: #606060;
+}
+
+.group-account {
+    position: relative;
+    margin: 45px 0;
+}
+
+.input-login{
+    width: 100%;
+    min-width: 220px;
+    background: none;
+    color: #c6c6c6;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #c6c6c6;
+}
+
+.input-login:focus, .input-new{
+    outline: none;
+}
+.input-login:focus ~ label, .input-login:valid ~ label {
+    top: -14px;
+    font-size: 12px;
+    color: #2196F3;
+}
+
+.input-login[type=password] {
+    letter-spacing: 0.3em;
+}
+
+.label-input{
+    color: #c6c6c6;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 300ms ease all;
+}
+
+.btn {
+    color: #d6d6d6;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 3px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    outline: none;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn:hover {
+    color: #fff;
+    box-shadow: 0 7px 14px rgba(0, 0, 0, 0.18), 0 5px 5px rgba(0, 0, 0, 0.12);
+}
+
+.btn.btn-link {
+    background: #00b8ae;
+    color: #fff;
+}
+
+.btn.btn-link:hover {
+    background: #0d8aee;
+    color: #deeffd;
+}
+
+.btn.btn-submit {
+    background: #2196F3;
+    color: #bce0fb;
+}
+
+.btn.btn-submit:hover {
+    background: #0d8aee;
+    color: #deeffd;
+}
+
+.btn.btn-cancel {
+    background: #eee;
+}
+
+.btn.btn-cancel:hover {
+    background: #e1e1e1;
+    color: #8b8b8b;
+}
+
+/* FIM estilo de Login e Registro */
