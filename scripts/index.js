@@ -108,7 +108,7 @@ function login(event) {
     if(inputUser.value == '' || inputPass.value == '')
     {
         let errorMsg = `<span class="text-center erro">Não deixe os campos senha e usuário vazios.</span>
-        <button class="btn btn-submit" type="submit">Cadastrar</button>`
+        <button class="btn btn-submit" type="submit">Login</button>`
         spanError.innerHTML = errorMsg
         return
     }
@@ -116,7 +116,7 @@ function login(event) {
     if(!localStorage.getItem('users'))
     {
         let errorMsg = `<span class="text-center erro">Usuario ou senha incorretos.</span>
-        <button class="btn btn-submit" type="submit">Cadastrar</button>`
+        <button class="btn btn-submit" type="submit">Login</button>`
         spanError.innerHTML = errorMsg
         return
     }
@@ -143,7 +143,7 @@ function login(event) {
             else
             {
                 let errorMsg = `<span class="text-center erro">Usuario ou senha incorretos.</span>
-                <button class="btn btn-submit" type="submit">Cadastrar</button>`
+                <button class="btn btn-submit" type="submit">Login</button>`
                 spanError.innerHTML = errorMsg
                 return
             }
@@ -151,7 +151,7 @@ function login(event) {
         else
         {
             let errorMsg = `<span class="text-center erro">Usuario ou senha incorretos.</span>
-            <button class="btn btn-submit" type="submit">Cadastrar</button>`
+            <button class="btn btn-submit" type="submit">Login</button>`
             spanError.innerHTML = errorMsg
             return
         }
