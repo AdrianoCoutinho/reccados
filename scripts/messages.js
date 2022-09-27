@@ -104,7 +104,7 @@ function editToMessage(indexOf)
 {
     users[indexUser].messages[indexOf].detail = editDetail.value
     users[indexUser].messages[indexOf].descript = editDescript.value
-    console.log(users[indexUser].messages[indexOf])
+    users[indexUser].messages[indexOf]
     saveData()
     listarRecados()
 }
@@ -115,7 +115,7 @@ function editMessage(indexOf) {
     titleModalEdit.innerText = `ID: ${indexOf} | ${users[indexUser].messages[indexOf].detail}`
     editDescript.value = users[indexUser].messages[indexOf].descript
     editDetail.value = users[indexUser].messages[indexOf].detail
-    console.log(users[indexUser].messages[indexOf])
+    users[indexUser].messages[indexOf]
 }
 
 ///////////////Remover recado
