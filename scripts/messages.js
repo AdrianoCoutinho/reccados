@@ -4,14 +4,23 @@ if(!sessionStorage.getItem('session')){
 }
 
 const newMessage = document.querySelector('#new-message')
-const editSaveBtn = document.querySelector('#editSaveBtn')
 const inputDescript = document.querySelector('#inputDescript')
 const inputDetail = document.querySelector('#inputDetail')
+
+const editSaveBtn = document.querySelector('#editSaveBtn')
 const titleModalEdit = document.querySelector('#messageTitle')
 const editDescript = document.querySelector('#editDescript')
 const editDetail = document.querySelector('#editDetail')
+
+const delSaveBtn = document.querySelector('#delSaveBtn')
+const titleModalDel = document.querySelector('#messageTitleDel')
+const delDescript = document.querySelector('#delDescript')
+const delDetail = document.querySelector('#delDetail')
+
 const userButton = document.querySelector('.dropdown-toggle')
+
 const buttonLogout = document.querySelector('#logout')
+
 const goTop = document.querySelector('#goTop')
 
 /////////////pega o evento salvar ao criar um recado novo
@@ -60,12 +69,12 @@ function listarRecados()
         messagesHTML +=`
         <tr>
         <th scope="row" class="scope">${index}</th>
-        <td class="col-sm-2">${users[indexUser].messages[index].detail}</td>
-        <td>${users[indexUser].messages[index].descript}</td>
-        <td class="col-sm-2">
-            <div class="d-grid gap-2 d-md-block center">
-                <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#editModal" onclick="editMessage(${index})">Editar</button>
-                <button class="btn btn-danger" type="button" onclick="delMessage(${index})">Excluir</button>
+        <td class="text-break col-3">${users[indexUser].messages[index].detail}</td>
+        <td class="text-break col-7">${users[indexUser].messages[index].descript}</td>
+        <td class="col-2">
+            <div class="d-grid gap-2 center">
+                <button class="btn btn-rec btn-success" type="button" data-bs-toggle="modal" data-bs-target="#editModal" onclick="editMessage(${index})">Editar</button>
+                <button class="btn btn-rec btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#delModal" onclick="delMessage(${index})">Excluir</button>
             </div>
         </td>
         </tr>
@@ -73,7 +82,6 @@ function listarRecados()
     }
     document.querySelector('tbody').innerHTML = messagesHTML
 }
-listarRecados()
 /////////////////////////////////////////////////////////////////////
 
 function addNewMessage(event) {
@@ -92,21 +100,14 @@ function addNewMessage(event) {
             detail: inputDescript.value,
             descript: inputDetail.value
         }
+    alertMessage('success','Novo recado adicionado')
+    const alert = bootstrap.Alert.getOrCreateInstance('#alertInfo')
+    setTimeout(closeAlert = () => {alert.close()}, 3500)
     users[indexUser].messages.unshift(newMessage)//////////adiciona novo recado ao topo
     saveData()//////salva o novo recado
     listarRecados()
     event.target.reset()
     inputDescript.focus()
-}
-
-////////////////////Editar os valores dentro da array
-function editToMessage(indexOf)
-{
-    users[indexUser].messages[indexOf].detail = editDetail.value
-    users[indexUser].messages[indexOf].descript = editDescript.value
-    users[indexUser].messages[indexOf]
-    saveData()
-    listarRecados()
 }
 
 //////////////Modificar textos, inputs, values do modal de edição///////////////
@@ -115,11 +116,50 @@ function editMessage(indexOf) {
     titleModalEdit.innerText = `ID: ${indexOf} | ${users[indexUser].messages[indexOf].detail}`
     editDescript.value = users[indexUser].messages[indexOf].descript
     editDetail.value = users[indexUser].messages[indexOf].detail
+}
+
+////////////////////Editar os valores dentro da array
+function editToMessage(indexOf)
+{
+    const editModal = document.getElementById('editModal')
+    editModal.addEventListener('hidden.bs.modal', event => {
+        alertMessage('warning','Recado editado.')
+        const alert = bootstrap.Alert.getOrCreateInstance('#alertInfo')
+        setTimeout(closeAlert = () => {alert.close()}, 3500)
+    })
+    users[indexUser].messages[indexOf].detail = editDetail.value
+    users[indexUser].messages[indexOf].descript = editDescript.value
     users[indexUser].messages[indexOf]
+    saveData()
+    listarRecados()
+}
+
+function delMessage(indexOf) {
+    delSaveBtn.setAttribute('onclick', `ConfirmdelMessage(${indexOf})`)
+    titleModalDel.innerText = `ID: ${indexOf} | ${users[indexUser].messages[indexOf].detail}`
+    delDescript.value = users[indexUser].messages[indexOf].descript
+    delDetail.value = users[indexUser].messages[indexOf].detail
+}
+
+function alertMessage(type, message)
+{
+    const msgAlert = `
+        <div class="alert alert-${type} text-uppercase alert-dismissible w-75 text-center" id="alertInfo" role="alert">
+            <div>${message}</div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    `
+    document.querySelector('#alerts').innerHTML = msgAlert
 }
 
 ///////////////Remover recado
-function delMessage(indexOf) {
+function ConfirmdelMessage(indexOf) {
+    const delModal = document.getElementById('delModal')
+    delModal.addEventListener('hidden.bs.modal', event => {
+        alertMessage('danger','Recado deletado.')
+        const alert = bootstrap.Alert.getOrCreateInstance('#alertInfo')
+        setTimeout(closeAlert = () => {alert.close()}, 3500)
+    })
     users[indexUser].messages.splice(indexOf, 1)
     saveData()////salva a array
     listarRecados()
@@ -135,3 +175,5 @@ goTop.addEventListener('click', goForTop = () => {
     document.body.scrollTop = 0;
     document.documentElement.scrollTop = 0;
 })
+
+listarRecados()

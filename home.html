@@ -32,29 +32,29 @@
         <div class="container container-home">
             <div class="row">
                 <div class="col-sm-12">
-                    <h1 class="home-title">Meus recados</h1>
+                    <h1 class="display-5 py-4">Recados</h1>
                     <form id="new-message" class="px-1">
                         <div class="row">
-                            <div class="col-sm-12">
+                            <div class="col-12">
                                 <div class="alert alert-dark text-center mt-1 p-1" role="alert">
                                     Adicionar recado
                                 </div>
                             </div>
-                            <div class="col-sm-2">
+                            <div class="col-12 col-md-3">
                                 <div class="group-message">
                                     <input type="text" id="inputDescript" class="input-new" required="required"/>
                                     <label class="label-new">Descrição</label>
                                 </div>
                             </div>
-                            <div class="col-sm-8">
+                            <div class="col-12 col-md-7">
                                 <div class="group-message">
                                     <input type="text" id="inputDetail" class="input-new" required="required"/>
                                     <label class="label-new">Detalhamento</label>
                                 </div>
                             </div>
-                            <div class="col-sm-2">
-                                <div class="d-grid gap-4">
-                                    <button class="btn btn-primary" type="submit">Salvar</button>
+                            <div class="col-12 mb-1 col-md-2">
+                                <div class="d-grid">
+                                    <button class="btn btn-rec btn-primary" type="submit">Salvar</button>
                                 </div>
                             </div>
                         </div>
@@ -80,7 +80,7 @@
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="messageTitle"></h5>
+                        <h5 class="text-break modal-title" id="messageTitle"></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
@@ -102,9 +102,39 @@
                 </div>
             </div>
         </div>
-        <button class="btn d-none d-sm-block" id="goTop" title="Ir ao topo"><span class="material-symbols-outlined">
-            arrow_upward
-            </span></button>
+        <div class="modal fade" id="delModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="messageTitleDel"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label for="recipient-name" class="col-form-label">Descrição:</label>
+                            <input type="text" class="form-control" id="delDetail" disabled>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message-text" class="col-form-label">Detalhes:</label>
+                            <textarea class="form-control" id="delDescript" disabled></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <div class="alert alert-danger text-center" role="alert">
+                                Tem certeza que deseja apagar o recado?
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-danger" id="delSaveBtn" data-bs-dismiss="modal" aria-label="Close">Deletar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="d-none d-sm-block" id="goTop" title="Ir ao topo">
+            <img src="/images/go-top.png" alt="" srcset="">
+        </div>
+        <div class="fixed-top d-flex justify-content-center w-100 mt-2" id="alerts"></div>
     </main>
     <script src="scripts/messages.js"></script>
     <script src="scripts/bootstrap.bundle.min.js"></script>
