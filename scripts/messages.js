@@ -110,6 +110,19 @@ function addNewMessage(event) {
     inputDescript.focus()
 }
 
+////////////////////Editar os valores dentro da array
+function editToMessage(indexOf)
+{
+    alertMessage('warning','Recado editado.')
+    const alertInfo = bootstrap.Alert.getOrCreateInstance('#alertInfo')
+    setTimeout(closeAlert = () => {alertInfo.close()}, 3500)
+    users[indexUser].messages[indexOf].detail = editDetail.value
+    users[indexUser].messages[indexOf].descript = editDescript.value
+    users[indexUser].messages[indexOf]
+    saveData()
+    listarRecados()
+}
+
 //////////////Modificar textos, inputs, values do modal de edição///////////////
 function editMessage(indexOf) {
     editSaveBtn.setAttribute('onclick', `editToMessage(${indexOf})`)
@@ -118,21 +131,6 @@ function editMessage(indexOf) {
     editDetail.value = users[indexUser].messages[indexOf].detail
 }
 
-////////////////////Editar os valores dentro da array
-function editToMessage(indexOf)
-{
-    const editModal = document.getElementById('editModal')
-    editModal.addEventListener('hidden.bs.modal', event => {
-        alertMessage('warning','Recado editado.')
-        const alert = bootstrap.Alert.getOrCreateInstance('#alertInfo')
-        setTimeout(closeAlert = () => {alert.close()}, 3500)
-    })
-    users[indexUser].messages[indexOf].detail = editDetail.value
-    users[indexUser].messages[indexOf].descript = editDescript.value
-    users[indexUser].messages[indexOf]
-    saveData()
-    listarRecados()
-}
 
 function delMessage(indexOf) {
     delSaveBtn.setAttribute('onclick', `ConfirmdelMessage(${indexOf})`)
@@ -154,9 +152,9 @@ function alertMessage(type, message)
 
 ///////////////Remover recado
 function ConfirmdelMessage(indexOf) {
+    alertMessage('danger','Recado deletado.')
     const delModal = document.getElementById('delModal')
     delModal.addEventListener('hidden.bs.modal', event => {
-        alertMessage('danger','Recado deletado.')
         const alert = bootstrap.Alert.getOrCreateInstance('#alertInfo')
         setTimeout(closeAlert = () => {alert.close()}, 3500)
     })
